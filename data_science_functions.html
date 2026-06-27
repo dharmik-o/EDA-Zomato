@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Libraries: Core Functions</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --container-bg: #ffffff;
+            --border-radius: 8px;
+            
+            /* Library Specific Colors */
+            --pandas-color: #150458;
+            --pandas-accent: #E70488;
+            --matplotlib-color: #11557c;
+            --matplotlib-accent: #f39c12;
+            --seaborn-color: #4C72B0;
+            --seaborn-accent: #55A868;
+            --sklearn-color: #F1932D;
+            --sklearn-accent: #2980b9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #ecf0f1;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            padding: 10px 15px;
+            border-radius: 4px;
+            color: #fff;
+        }
+
+        h2.pandas { background-color: var(--pandas-color); }
+        h2.matplotlib { background-color: var(--matplotlib-color); }
+        h2.seaborn { background-color: var(--seaborn-color); }
+        h2.sklearn { background-color: var(--sklearn-color); }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            background-color: #fff;
+            border: 1px solid #e1e8ed;
+            border-left-width: 5px;
+            border-radius: 4px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .pandas-list li { border-left-color: var(--pandas-accent); }
+        .matplotlib-list li { border-left-color: var(--matplotlib-accent); }
+        .seaborn-list li { border-left-color: var(--seaborn-accent); }
+        .sklearn-list li { border-left-color: var(--sklearn-accent); }
+
+        .func-name {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .pandas-list .func-name { color: var(--pandas-accent); }
+        .matplotlib-list .func-name { color: var(--matplotlib-color); }
+        .seaborn-list .func-name { color: var(--seaborn-color); }
+        .sklearn-list .func-name { color: var(--sklearn-color); }
+
+        .definition {
+            display: block;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .sub-category {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin: 25px 0 10px 0;
+            border-bottom: 1px dashed #bdc3c7;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Data Science Libraries: Core Functions</h1>
+
+    <!-- PANDAS SECTION -->
+    <h2 class="pandas">1. Pandas (Data Manipulation)</h2>
+    <ul class="pandas-list">
+        <li><span class="func-name">pd.read_csv()</span> <span class="definition">Reads a comma-separated values (CSV) file into a DataFrame.</span></li>
+        <li><span class="func-name">pd.read_excel()</span> <span class="definition">Reads an Excel file into a pandas DataFrame.</span></li>
+        <li><span class="func-name">pd.merge()</span> <span class="definition">Combines two DataFrames together based on a common column using database-style joins.</span></li>
+        <li><span class="func-name">pd.concat()</span> <span class="definition">Concatenates multiple pandas objects along a particular axis.</span></li>
+        <li><span class="func-name">pd.get_dummies()</span> <span class="definition">Converts categorical variables into dummy/indicator variables (One-Hot Encoding).</span></li>
+        <li><span class="func-name">df.head()</span> <span class="definition">Returns the first n rows of the DataFrame.</span></li>
+        <li><span class="func-name">df.columns</span> <span class="definition">Returns the column labels of the DataFrame.</span></li>
+        <li><span class="func-name">df.info()</span> <span class="definition">Prints a concise summary of a DataFrame, including data types and non-null values.</span></li>
+        <li><span class="func-name">df.describe()</span> <span class="definition">Generates descriptive statistics summarizing the central tendency, dispersion, and shape of a dataset.</span></li>
+        <li><span class="func-name">df.isnull() / df.isna()</span> <span class="definition">Detects missing or null values in the DataFrame.</span></li>
+        <li><span class="func-name">df.groupby()</span> <span class="definition">Groups DataFrame using a mapper or by a Series of columns to perform aggregated operations.</span></li>
+        <li><span class="func-name">df.reset_index()</span> <span class="definition">Resets the index of the DataFrame to the default integer index.</span></li>
+        <li><span class="func-name">df.rename()</span> <span class="definition">Alters axes labels or column headings.</span></li>
+        <li><span class="func-name">df.drop()</span> <span class="definition">Removes specified labels from rows or columns.</span></li>
+        <li><span class="func-name">df.unique()</span> <span class="definition">Returns unique values of a Series object.</span></li>
+        <li><span class="func-name">df.value_counts()</span> <span class="definition">Returns a Series containing counts of unique values.</span></li>
+        <li><span class="func-name">df.fillna()</span> <span class="definition">Fills NA/NaN values using a specified method or filler value.</span></li>
+        <li><span class="func-name">df.apply()</span> <span class="definition">Applies a function along an axis of the DataFrame.</span></li>
+        <li><span class="func-name">df.astype()</span> <span class="definition">Casts a pandas object to a specified standard data type.</span></li>
+        <li><span class="func-name">series.map()</span> <span class="definition">Maps values of Series according to an input mapping or function.</span></li>
+        <li><span class="func-name">series.str.split()</span> <span class="definition">Splits string values around a given separator/delimiter.</span></li>
+        <li><span class="func-name">series.str.replace()</span> <span class="definition">Replaces occurrences of pattern/regex in the Series with some other string.</span></li>
+    </ul>
+
+    <!-- MATPLOTLIB SECTION -->
+    <h2 class="matplotlib">2. Matplotlib (Core Visualization)</h2>
+    <ul class="matplotlib-list">
+        <li><span class="func-name">plt.plot()</span> <span class="definition">Draws continuous lines, typically used for time-series data or mathematical functions.</span></li>
+        <li><span class="func-name">plt.scatter()</span> <span class="definition">Creates a classic scatter plot mapping individual (x, y) coordinates.</span></li>
+        <li><span class="func-name">plt.bar() / plt.barh()</span> <span class="definition">Renders standard vertical or horizontal bar charts.</span></li>
+        <li><span class="func-name">plt.hist()</span> <span class="definition">Plots a classic histogram to show data frequency bins.</span></li>
+        <li><span class="func-name">plt.pie()</span> <span class="definition">Generates a pie chart representing relative proportions.</span></li>
+        <li><span class="func-name">plt.boxplot()</span> <span class="definition">Renders a box-and-whisker plot to highlight medians, quartiles, and outliers.</span></li>
+        <li><span class="func-name">plt.imshow()</span> <span class="definition">Displays data as an image on a 2D regular raster.</span></li>
+        <li><span class="func-name">plt.pcolormesh()</span> <span class="definition">Creates a pseudocolor plot with a non-regular rectangular grid.</span></li>
+        <li><span class="func-name">plt.subplots()</span> <span class="definition">Creates a figure and a set of subplots for grid layouts.</span></li>
+        <li><span class="func-name">plt.show()</span> <span class="definition">Displays all open figures.</span></li>
+    </ul>
+
+    <!-- SEABORN SECTION -->
+    <h2 class="seaborn">3. Seaborn (Statistical Visualization)</h2>
+    
+    <div class="sub-category">Relational Plots</div>
+    <ul class="seaborn-list">
+        <li><span class="func-name">sns.scatterplot()</span> <span class="definition">Enhanced scatter plot supporting hue mapping, styling, and sizing based on variables.</span></li>
+        <li><span class="func-name">sns.lineplot()</span> <span class="definition">Draws line graphs with automatic confidence intervals for aggregated data.</span></li>
+        <li><span class="func-name">sns.relplot()</span> <span class="definition">Figure-level function to map relational plots onto a grid of subplots using facets.</span></li>
+    </ul>
+
+    <div class="sub-category">Distribution Plots</div>
+    <ul class="seaborn-list">
+        <li><span class="func-name">sns.histplot()</span> <span class="definition">An enhanced version of a histogram with options for smoothing and stacking.</span></li>
+        <li><span class="func-name">sns.kdeplot()</span> <span class="definition">Computes and plots a smooth, continuous kernel density estimate probability distribution.</span></li>
+        <li><span class="func-name">sns.ecdfplot()</span> <span class="definition">Plots empirical cumulative distribution functions.</span></li>
+        <li><span class="func-name">sns.rugplot()</span> <span class="definition">Draws marginal ticks along the axis to show individual data point locations.</span></li>
+    </ul>
+
+    <div class="sub-category">Categorical Plots</div>
+    <ul class="seaborn-list">
+        <li><span class="func-name">sns.barplot()</span> <span class="definition">Shows point estimates and confidence intervals with rectangular bars.</span></li>
+        <li><span class="func-name">sns.countplot()</span> <span class="definition">Shows the counts of observations in each categorical bin.</span></li>
+        <li><span class="func-name">sns.boxplot()</span> <span class="definition">Shows distributions with respect to categories using box-and-whisker structure.</span></li>
+        <li><span class="func-name">sns.violinplot()</span> <span class="definition">Combines box plots with density traces to show detailed distribution shapes.</span></li>
+        <li><span class="func-name">sns.stripplot() / sns.swarmplot()</span> <span class="definition">Scatter plots adjusted specifically for categorical axes so points don't overlap blindly.</span></li>
+        <li><span class="func-name">sns.catplot()</span> <span class="definition">The master figure-level function for categorical plots in grids.</span></li>
+    </ul>
+
+    <div class="sub-category">Matrix & Multi-Plot Grids</div>
+    <ul class="seaborn-list">
+        <li><span class="func-name">sns.heatmap()</span> <span class="definition">Plots rectangular data as a color-encoded matrix.</span></li>
+        <li><span class="func-name">sns.clustermap()</span> <span class="definition">A matrix plot that runs hierarchical clustering to group similar data visually.</span></li>
+        <li><span class="func-name">sns.pairplot()</span> <span class="definition">Generates a grid showing pairwise relationships across numeric columns in a dataset.</span></li>
+        <li><span class="func-name">sns.jointplot()</span> <span class="definition">Creates a bi-variate center plot flanked by uni-variate marginal distribution plots.</span></li>
+        <li><span class="func-name">sns.FacetGrid()</span> <span class="definition">A framework allowing you to map any plotting function sequentially onto grids.</span></li>
+    </ul>
+
+    <div class="sub-category">Regression Plots</div>
+    <ul class="seaborn-list">
+        <li><span class="func-name">sns.lmplot() / sns.regplot()</span> <span class="definition">Plots a scatter plot alongside a calculated linear regression line fit and confidence interval.</span></li>
+    </ul>
+
+    <!-- SCIKIT-LEARN SECTION -->
+    <h2 class="sklearn">4. Scikit-Learn (Machine Learning Preprocessing)</h2>
+    <ul class="sklearn-list">
+        <li><span class="func-name">LabelEncoder()</span> <span class="definition">Encodes target or categorical feature labels with value choices between 0 and n_classes-1.</span></li>
+        <li><span class="func-name">OneHotEncoder()</span> <span class="definition">Encodes categorical features as a one-hot numeric array.</span></li>
+        <li><span class="func-name">StandardScaler()</span> <span class="definition">Standardizes features by removing the mean and scaling to unit variance.</span></li>
+        <li><span class="func-name">train_test_split()</span> <span class="definition">Splits arrays or matrices into random train and test subsets for validation.</span></li>
+        <li><span class="func-name">.fit_transform()</span> <span class="definition">Fits data parameters (to scale/encode) and returns the transformed array simultaneously.</span></li>
+        <li><span class="func-name">.transform()</span> <span class="definition">Applies calibrated scaling/encoding values to independent data (like a validation set).</span></li>
+    </ul>
+</div>
+
+</body>
+</html>
